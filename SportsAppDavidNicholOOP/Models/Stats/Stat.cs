@@ -9,13 +9,22 @@ namespace SportsAppDavidNicholOOP.Models
     {
         public string Description { get; set; }
         public float Value { get; set; }
-        public string About { get; set; }
 
         public Stat(string description, float value)
         {
             this.Description = description;
             this.Value = value;
-            this.About = "Default Stat About";
+        }
+
+        public string AboutMessage(IPlayer player)
+        {
+            string statListAbout = "";
+            for(int i = 0; i < player.StatList.Count; i++)
+            {
+                statListAbout += $"{player.StatList[i].Value} {player.StatList[i].Description} "; 
+            }
+
+            return $"{player.Name} earned {statListAbout}"; // player earned value description
         }
     }
 }

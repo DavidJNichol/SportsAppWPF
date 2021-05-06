@@ -7,6 +7,7 @@ namespace SportsAppDavidNicholOOP.Models
     public class Sport : ISport
     {
         public string Name { get; set; }
+        public int NumEvents { get; set; }
 
         public Sport()
         {

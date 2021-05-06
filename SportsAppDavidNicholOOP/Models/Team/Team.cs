@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using SportsAppDavidNicholOOP.Models.Interfaces;
+using SportsAppDavidNicholOOP.Models.Sports;
 
-namespace SportsAppDavidNicholOOP.Models
+namespace SportsAppDavidNicholOOP.Models.Team
 {
     public class Team : ITeam
     {
@@ -11,8 +12,15 @@ namespace SportsAppDavidNicholOOP.Models
         public List<Stat> StatList { get; set; }
         public ISport SportPlayed { get; set; }
         public int ID { get; set; }
-
         public string Name { get; set; }
+
+        public Team()
+        {
+            this.ID = 404;
+            this.StatList = new List<Stat>();
+            this.PlayerList = new List<IPlayer>();
+        }
+
 
         public Team(ISport sport, string name)
         {
@@ -31,6 +39,13 @@ namespace SportsAppDavidNicholOOP.Models
         public void RemovePlayer(IPlayer player)
         {
             this.PlayerList.Remove(player);
+        }
+
+        public IPlayer GetRandomPlayer(int randNum) // change back to a Random class argument seed after testing
+        {
+            //int randomNum = seed.Next(0, PlayerList.Count);
+
+            return PlayerList[randNum];
         }
     }
 }

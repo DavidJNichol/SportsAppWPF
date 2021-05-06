@@ -11,7 +11,7 @@ namespace SportsAppDavidNicholOOP.Models
         public string Position { get; set; }
         public List<Stat> StatList { get; set; }
 
-        public Player(string name, string optionalPosition = "Default Position")
+        public Player(string name, string optionalPosition = "Default Position") // some sports don't have positions
         {
             this.Name = name;
             this.Position = optionalPosition;

@@ -19,5 +19,7 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
         void AddPlayer(IPlayer player);
 
         void RemovePlayer(IPlayer player);
+
+        IPlayer GetRandomPlayer(int randNum); // change back to a Random class argument seed after testing
     }
 }

@@ -8,6 +8,12 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
     {
         IMatch Match { get; set; }
 
-        string About { get; set; }
+        string MatchResultOutputString { get; set; }
+
+        string PrintMatchEvents(int forcedSeed, int forcedTeam, int forcedPlayer, int amountOfTimes); // args for testing only
+
+        string DeclareWinner();
+
+        string DeclareTie();
     }
 }

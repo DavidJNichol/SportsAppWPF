@@ -59,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Models\Sports\BallSport.cs" />
+    <Compile Include="Models\Sports\Baseball.cs" />
+    <Compile Include="Models\Sports\Basketball.cs" />
+    <Compile Include="Models\Sports\Hockey.cs" />
     <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -76,12 +80,12 @@
     <Compile Include="Models\Interfaces\ISport.cs" />
     <Compile Include="Models\Interfaces\IStat.cs" />
     <Compile Include="Models\Interfaces\ITeam.cs" />
-    <Compile Include="Models\Match.cs" />
-    <Compile Include="Models\MatchResult.cs" />
-    <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\Sport.cs" />
-    <Compile Include="Models\Stat.cs" />
-    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\Match\Match.cs" />
+    <Compile Include="Models\Match\MatchResult.cs" />
+    <Compile Include="Models\Player\Player.cs" />
+    <Compile Include="Models\Sports\Sport.cs" />
+    <Compile Include="Models\Stats\Stat.cs" />
+    <Compile Include="Models\Team\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
