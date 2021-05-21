@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SportsAppDavidNicholOOP.Models
 {
+    [Serializable]
     public class Football : BallSport
     {       
         public Football()

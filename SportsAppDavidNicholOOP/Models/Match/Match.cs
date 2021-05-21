@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using SportsAppDavidNicholOOP.Models.Team;
+using SportsAppDavidNicholOOP.Models.Sports;
 
 namespace SportsAppDavidNicholOOP.Models
 {
+    [Serializable]
     public class Match : IMatch
     {
         public ITeam TeamOne { get; set; }
@@ -23,17 +25,23 @@ namespace SportsAppDavidNicholOOP.Models
             this.Date = date;
             this.Time = time;
             this.SportPlayed = sportPlayed;
-            this.About = $"Lovely day to play some {this.SportPlayed.Name} on {this.Date}. We have {TeamOne.Name} versus {TeamTwo.Name} at {this.Time}.";
+            
+            if(this.SportPlayed == null)
+            {
+                this.SportPlayed = new Sport();
+            }
+
+
+            this.About = $"Lovely day to play some {this.SportPlayed.Name}. We have {TeamOne.Name} versus {TeamTwo.Name} on ";
         }
-        
         public void SetWinner(ITeam team)
         {
             this.Winner = team;
         }
 
-        public ITeam getRandomTeam(int randNum) // change back to a Random class argument seed after testing
+        public ITeam getRandomTeam(Random seed) // change back to a Random class argument seed after testing
         {
-            //int randNum = seed.Next(0, 2);
+            int randNum = seed.Next(0, 2);
 
             if(randNum == 0)
             {

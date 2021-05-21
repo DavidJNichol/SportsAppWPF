@@ -9,6 +9,6 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
         string Description { get; set; }
         float Value { get; set; }
 
-        string AboutMessage(IPlayer player);
+        string AboutMessage();
     }
 }

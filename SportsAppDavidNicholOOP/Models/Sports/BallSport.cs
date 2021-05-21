@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportsAppDavidNicholOOP.Models
 {
+    [Serializable]
     public class BallSport : Sport // kind of a useless class
     {
         public string ballType { get; set; }

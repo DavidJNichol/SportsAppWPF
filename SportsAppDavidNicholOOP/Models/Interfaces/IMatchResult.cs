@@ -10,7 +10,7 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
 
         string MatchResultOutputString { get; set; }
 
-        string PrintMatchEvents(int forcedSeed, int forcedTeam, int forcedPlayer, int amountOfTimes); // args for testing only
+        string PrintMatchEvents(); 
 
         string DeclareWinner();
 

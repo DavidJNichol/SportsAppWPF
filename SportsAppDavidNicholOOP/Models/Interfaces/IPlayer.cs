@@ -9,7 +9,5 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
         string Name { get; set; }
 
         string Position { get; set; }
-
-        List<Stat> StatList { get; set; }
     }
 }

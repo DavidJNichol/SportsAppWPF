@@ -18,6 +18,6 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
 
         string About { get; set; }
 
-        ITeam getRandomTeam(int randNum); // change back to a Random class argument seed after testing
+        ITeam getRandomTeam(Random seed);
     }
 }

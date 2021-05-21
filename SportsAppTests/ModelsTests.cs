@@ -25,7 +25,6 @@ namespace SportsAppTests
             var MockPlayer = new Mock<IPlayer>();
             MockPlayer.Setup(s => s.Name).Returns("Larry Jones");
             MockPlayer.Setup(s => s.Position).Returns("Center");
-            MockPlayer.Setup(s => s.StatList).Returns(new List<Stat>());
 
             testTeam.AddPlayer(MockPlayer.Object);
 
@@ -46,7 +45,7 @@ namespace SportsAppTests
 
             Assert.AreEqual(eagles.PlayerList.Count, 0);
             Assert.AreEqual(eagles.SportPlayed.Name, "Football");
-            Assert.AreEqual(eagles.StatList.Count, 0);
+            Assert.AreEqual(eagles.StatList.Count, 4);
 
             ISport baseball = new Baseball();
             eagles = new Team(baseball, "Eagles");
@@ -94,27 +93,26 @@ namespace SportsAppTests
 
             eagles.AddPlayer(new Player("David Nichol", "Quarterback"));
 
-            eagles.PlayerList[0].StatList.Add(new Stat("Rushing Yards", 100000)); // add a realistic stat
+            Assert.AreEqual(eagles.StatList[0].Description, "Touchdowns"); // stat looks good?
+            eagles.StatList[0].Value = 100000;
+            Assert.AreEqual(eagles.StatList[0].Value, 100000);
 
-            Assert.AreEqual(eagles.PlayerList[0].StatList[0].Description, "Rushing Yards"); // stat looks good?
-            Assert.AreEqual(eagles.PlayerList[0].StatList[0].Value, 100000);
+            Assert.AreEqual(eagles.StatList[0].AboutMessage(), "100000 Touchdowns "); // check that stat about is good
 
-            Assert.AreEqual(eagles.PlayerList[0].StatList[0].AboutMessage(eagles.PlayerList[0]), "Jeff Meyers earned 100000 Rushing Yards "); // check that stat about is good
+            eagles.StatList[1].Value = 100; // add another stat
 
-            eagles.PlayerList[0].StatList.Add(new Stat("Receptions", 100)); // add another stat
+            Assert.AreEqual(eagles.StatList[1].AboutMessage(), "100 Interceptions "); // check that stat about is good
 
-            Assert.AreEqual(eagles.PlayerList[0].StatList[0].AboutMessage(eagles.PlayerList[0]), "Jeff Meyers earned 100000 Rushing Yards 100 Receptions "); // check that stat about is good
+            eagles.StatList[2].Value = 20000;
 
-            eagles.PlayerList[1].StatList.Add(new Stat("Passing Yards", 20000));
-
-            Assert.AreEqual(eagles.PlayerList[1].StatList[0].AboutMessage(eagles.PlayerList[1]), "David Nichol earned 20000 Passing Yards ");
+            Assert.AreEqual(eagles.StatList[2].AboutMessage(), "20000 Field Goals ");
 
             eagles = new Team(new Hockey(), "Eagles"); // hockey time
             eagles.AddPlayer(new Player("Jeff Meyers", "Right Defenseman"));
 
-            eagles.PlayerList[0].StatList.Add(new Stat("Bones Broken", 99999)); // nice
+            eagles.StatList[1].Value = 99999;
 
-            Assert.AreEqual(eagles.PlayerList[0].StatList[0].AboutMessage(eagles.PlayerList[0]), "Jeff Meyers earned 99999 Bones Broken ");
+            Assert.AreEqual(eagles.StatList[1].AboutMessage(), "99999 Fights ");
 
         }
 
@@ -178,15 +176,17 @@ namespace SportsAppTests
             /* first match result arg is a sport event, second is the team, third is the player from that team, fourth is the 
             num times it will run.
             2 is score run, 0 is panthers, 3 is crazy hugh porter, 1 is the amount of times it will print*/
-            Assert.AreEqual(matchResult.PrintMatchEvents(2, 0, 3, 1), "Crazy Hugh Porter scored a run.\n");
-            Assert.AreEqual(matchResult.PrintMatchEvents(0, 1, 0, 2), "Quick Mark Hammond hit a home run.\nQuick Mark Hammond hit a home run.\n");
-            Assert.AreEqual(matchResult.PrintMatchEvents(1, 0, 2, 1), "Paul Lee hit a grand slam.\n");
 
-            match.SportPlayed = new Basketball(); // basketball time
-            Assert.AreEqual(matchResult.PrintMatchEvents(2, 0, 1, 1), "Slim Thomas Keller fouled.\n");
-            Assert.AreEqual(matchResult.PrintMatchEvents(0, 1, 1, 2), "Nick Sherman scored a three.\nNick Sherman scored a three.\n");
-            Assert.AreEqual(matchResult.PrintMatchEvents(3, 1, 3, 1), "Strongarm Will Campos dunked.\n");
+            //matchresult.printmatchevents below was changed after the tests for it passed
+            //to be random instead of allowing forced input
 
+            //Assert.AreEqual(matchResult.PrintMatchEvents(2, 0, 3, 1), "Crazy Hugh Porter scored a run.\n");
+            //Assert.AreEqual(matchResult.PrintMatchEvents(0, 1, 0, 2), "Quick Mark Hammond hit a home run.\nQuick Mark Hammond hit a home run.\n");
+            //Assert.AreEqual(matchResult.PrintMatchEvents(1, 0, 2, 1), "Paul Lee hit a grand slam.\n");
+
+            //match.SportPlayed = new Basketball(); // basketball time
+            //Assert.AreEqual(matchResult.PrintMatchEvents(2, 0, 1, 1), "Slim Thomas Keller fouled.\n");
+            //Assert.AreEqual(matchResult.PrintMatchEvents(0, 1, 1, 2), "Nick Sherman scored a three.\nNick Sherman scored a three.\n");          
         }
     }
 }

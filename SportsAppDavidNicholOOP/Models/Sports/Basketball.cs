@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SportsAppDavidNicholOOP.Models.Sports
 {
+    [Serializable]
     public class Basketball : BallSport
     {
         public Basketball()
@@ -17,7 +18,7 @@ namespace SportsAppDavidNicholOOP.Models.Sports
         }
 
         public string ThreePoint(IPlayer player)
-        {
+        {            
             return $"{player.Name} scored a three.\n";
         }
 

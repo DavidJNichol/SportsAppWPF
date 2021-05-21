@@ -1,6 +1,7 @@
 ﻿using SportsAppDavidNicholOOP.Models;
 using SportsAppDavidNicholOOP.Models.Sports;
 using SportsAppDavidNicholOOP.Models.Team;
+using SportsAppDavidNicholOOP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,16 @@ namespace SportsAppDavidNicholOOP
     /// </summary>
     public partial class MainWindow : Window
     {
+        TeamSetupViewModel viewModel;
+        Mediator mediator;
+
         public MainWindow()
         {
             InitializeComponent();
+            mediator = new Mediator();
+            mediator.currentWindow = this;
+            viewModel = new TeamSetupViewModel(mediator);
+            this.DataContext = viewModel;
         }
     }
 }

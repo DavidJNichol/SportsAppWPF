@@ -4,6 +4,7 @@ using System.Text;
 
 namespace SportsAppDavidNicholOOP.Models
 {
+    [Serializable]
     public class Sport : ISport
     {
         public string Name { get; set; }

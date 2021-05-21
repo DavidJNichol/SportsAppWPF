@@ -16,10 +16,14 @@ namespace SportsAppDavidNicholOOP.Models.Interfaces
 
         List<Stat> StatList { get; set; }
 
+        int Score { get; set; }
+
         void AddPlayer(IPlayer player);
 
         void RemovePlayer(IPlayer player);
 
-        IPlayer GetRandomPlayer(int randNum); // change back to a Random class argument seed after testing
+        IPlayer GetRandomPlayer(Random seed);
+
+        void InitializeStats();
     }
 }

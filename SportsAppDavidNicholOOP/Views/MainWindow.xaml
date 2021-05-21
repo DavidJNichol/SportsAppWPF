@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportsAppDavidNicholOOP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="TeamSetupViewModel">
     <Grid>
-        
+        <Label Margin="190,111,193,265" HorizontalAlignment="Center" Height="43" Width="409" FontFamily="Arial Black" FontSize="22">Welcome to the OOP Sports App</Label>
+        <Label Margin="10,12,677,376">Team One Name:</Label>
+        <Label Margin="682,12,10,376">Team Two Name:</Label>
+        <TextBox Margin="8,48,625,340" Text="{Binding Path = TeamOneName, UpdateSourceTrigger=LostFocus, NotifyOnSourceUpdated=True, Mode=TwoWay}"></TextBox>
+        <TextBox Margin="616,48,17,340" Text="{Binding Path = TeamTwoName, UpdateSourceTrigger=LostFocus, NotifyOnSourceUpdated=True, Mode=TwoWay}"/>
+        <Label Margin="356,205,324,176">Choose a sport:</Label>
+        <Button Margin="56,243,608,80" Command="{Binding ChooseFootball, Mode=TwoWay}">
+            <Button.Background>
+                <ImageBrush ImageSource="/SportsAppDavidNicholOOP;component/Images/Football.png"/>
+            </Button.Background>
+        </Button>
+        <Button Margin="243,243,421,80" Command="{Binding ChooseBaseball, Mode=TwoWay}">
+            <Button.Background>
+                <ImageBrush ImageSource="/SportsAppDavidNicholOOP;component/Images/Baseball.png"/>
+            </Button.Background>
+        </Button>
+        <Button Margin="440,243,224,80" Command="{Binding ChooseHockey, Mode=TwoWay}">
+            <Button.Background>
+                <ImageBrush ImageSource="/SportsAppDavidNicholOOP;component/Images/Hockey.png"/>
+            </Button.Background>
+        </Button>
+        <Button Margin="614,243,50,80" Command="{Binding ChooseBasketball, Mode=TwoWay}">
+            <Button.Background>
+                <ImageBrush ImageSource="/SportsAppDavidNicholOOP;component/Images/basketball.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Margin="330,362,313,25" Background="#FFBF4747" Command="{Binding Commence, Mode=TwoWay}">Commence</Button>
+
+        <TextBox Margin="10,116,623,279" Text="{Binding Path=TeamOnePlayerName}"></TextBox>
+        <TextBox Margin="616,113,17,282" Text="{Binding Path=TeamTwoPlayerName}"/>
+        <Label Margin="8,86,651,294">Player Name:</Label>
+        <Label Margin="700,82,-41,298" Content="Player Name:"/>
+
+        <Button Margin="10,148,689,242" Command= "{Binding AddPlayerTeamOne}">Add</Button>
+        <Button Margin="682,148,17,242" Command= "{Binding AddPlayerTeamTwo}" Content="Add"/>
     </Grid>
 </Window>

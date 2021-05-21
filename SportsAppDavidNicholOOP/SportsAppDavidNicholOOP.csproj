@@ -55,6 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Repo.cs" />
+    <Compile Include="ViewModels\MatchResultViewModel.cs" />
+    <Compile Include="ViewModels\Mediator.cs" />
+    <Compile Include="ViewModels\TeamAdjustViewModel.cs" />
+    <Compile Include="Views\Helper.cs" />
+    <Compile Include="Views\MatchWindow.xaml.cs">
+      <DependentUpon>MatchWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeamsWindow.xaml.cs">
+      <DependentUpon>TeamsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +74,7 @@
     <Compile Include="Models\Sports\Baseball.cs" />
     <Compile Include="Models\Sports\Basketball.cs" />
     <Compile Include="Models\Sports\Hockey.cs" />
+    <Compile Include="ViewModels\TeamSetupViewModel.cs" />
     <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -71,6 +83,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MatchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeamsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Sports\Football.cs" />
@@ -112,7 +132,16 @@
     <None Include="Views\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Resource Include="Images\Football.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Baseball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hockey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\basketball.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

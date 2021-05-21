@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SportsAppDavidNicholOOP.Models
 {
+    [Serializable]
     public class Stat : IStat
     {
         public string Description { get; set; }
@@ -16,15 +17,13 @@ namespace SportsAppDavidNicholOOP.Models
             this.Value = value;
         }
 
-        public string AboutMessage(IPlayer player)
+        public string AboutMessage()
         {
             string statListAbout = "";
-            for(int i = 0; i < player.StatList.Count; i++)
-            {
-                statListAbout += $"{player.StatList[i].Value} {player.StatList[i].Description} "; 
-            }
 
-            return $"{player.Name} earned {statListAbout}"; // player earned value description
+            statListAbout += $"{this.Value} {this.Description} "; 
+
+            return statListAbout; // team earned value description
         }
     }
 }
